@@ -3,8 +3,7 @@
   --color-hightlight:#da6846;
   --color-light:#f5f2ee;
   --color-dark:#2f3020;
-  --color-inter:#596235;
-  
+  --color-inter:#596235;  
 }
 * {
   margin: 0;
@@ -73,16 +72,19 @@ form {
 }
 label {
   margin: 0 0 10px 0;
-  font-weight: 400;
-}
-input:focus {
-  border: 1px solid var(--color-inter);
+  font-weight: 500;
 }
 input {
   width: 98%;
   border: 1px solid #ccc;
   margin-top: 5px;
   padding: 5px;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+}
+input:focus {
+  border: 1px solid var(--color-inter);
 }
 button {
   width: 34%;
