@@ -15,7 +15,7 @@ function financing() {
   var amortValue = initialValue / termMonth;
   var accruedInterest = [];
 
-  for (i = 0; i <= (termMonth - 1); i++) {
+  for (i = 0; i < termMonth; i++) {
     var interestValue = (initialValue - (i * amortValue)) * monthlyInterest;
     var interestTotal = (amortValue + interestValue);
     accruedInterest.push(+interestValue);
@@ -24,7 +24,7 @@ function financing() {
     return total + num;
   }).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
-  for (i = 0; i <= 4; i++) {
+  for (i = 0; i < 5; i++) {
     var interestValue = (initialValue - (i * amortValue)) * monthlyInterest;
     var interestTotal = (amortValue + interestValue);
 
