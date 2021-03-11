@@ -12,7 +12,6 @@ function financing() {
 
   var initialValue = document.getElementById('initialValue').valueAsNumber;
   var amortValue = initialValue / termMonth;
-  var accruedInterest = [];
 
   for (i = 0; i < 5; i++) {
     var interestValue = (initialValue - (i * amortValue)) * monthlyInterest;
@@ -41,8 +40,7 @@ function financing() {
   document.getElementById('accruedInterestField').value = accruedInterest.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
-
-// SUBMIT:
+// submit:
 simulateButton.addEventListener('click', function () {
   resultValues.innerHTML = '';
   financing();
