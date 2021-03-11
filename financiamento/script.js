@@ -1,5 +1,4 @@
 var resultValues = document.getElementById('resultValues');
-
 var simulateButton = document.getElementById('simulateButton');
 simulateButton.type = 'button';
 
@@ -15,19 +14,9 @@ function financing() {
   var amortValue = initialValue / termMonth;
   var accruedInterest = [];
 
-  for (i = 0; i < termMonth; i++) {
-    var interestValue = (initialValue - (i * amortValue)) * monthlyInterest;
-    var interestTotal = (amortValue + interestValue);
-    accruedInterest.push(+interestValue);
-  }
-  document.getElementById('accruedInterestField').value = accruedInterest.reduce(function (total, num) {
-    return total + num;
-  }).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2, maximumFractionDigits: 2 });
-
   for (i = 0; i < 5; i++) {
     var interestValue = (initialValue - (i * amortValue)) * monthlyInterest;
     var interestTotal = (amortValue + interestValue);
-
     var tr = document.createElement('tr');
     tr.innerHTML =
       '<td>' +
@@ -43,9 +32,17 @@ function financing() {
       '</td>';
     resultValues.appendChild(tr);
   }
+
+  var accruedInterest = 0;
+  for (i = 0; i < termMonth; i++) {
+    var interestValue = (initialValue - (i * amortValue)) * monthlyInterest;
+    accruedInterest += interestValue;
+  }
+  document.getElementById('accruedInterestField').value = accruedInterest.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
-// SUBMIT
+
+// SUBMIT:
 simulateButton.addEventListener('click', function () {
   resultValues.innerHTML = '';
   financing();
