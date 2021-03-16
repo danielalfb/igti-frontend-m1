@@ -4,31 +4,132 @@
   --color-light: #f5f2ee;
   --color-dark: #2f3020;
   --color-inter: #596235;
+  --color-grey: rgb(128, 128, 128);
+}
+
+html {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  height: 100%;
+}
+*,
+*:focus {
+  outline: none;
 }
 
 body {
   background-color: #fcf9f4;
   line-height: 1.25;
-  font-family: 'Fira Sans Condensed', sans-serif;
   font-weight: 300;
-  font-size: 1vw;
+  font-size: 0.95em;
   color: var(--color-dark);
+
+  padding: 0;
+  margin: 0;
+  height: 100%;
 }
 
 .container {
   background-color: #fff;
   width: 100%;
   height: auto;
-  margin: 10px auto;
-  padding: 15px;
   border-radius: 5px;
 
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
 .controls {
+  width: 20%;
   display: flex;
   flex-direction: column;
+  margin: 15px;
+}
+
+.data {
+  flex: 1;
+  margin: 15px;
+  height: 100%;
+}
+
+select {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+  font-weight: 400;
+}
+table tr {
+  background-color: #fdfdff;
+  border: 1px solid #ddd;
+  padding: 0.35em;
+}
+table th,
+table td {
+  padding: 0.625em;
+  text-align: center;
+}
+table th,
+label {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  font-weight: 700;
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+label {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid rgb(228, 228, 228);
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+  table {
+    border: 0;
+  }
+  .controls {
+    width: 94%;
+  }
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: 0.625em;
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 0.8em;
+    text-align: right;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
 }
